@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8) #Проверка версии CMake.
 set(PROJECT_NAME Test) #Создаем обычную локальную переменную с именем проекта
 project(${PROJECT_NAME}) # Название проекта
 
-set(pro_name Test1102) #Переменная с именем приложения
+set(pro_name Test2502) #Переменная с именем приложения
 set(vectorlib vectorlib) #Переменная с именем библиотеки
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE) #Создается переменная CMAKE_CONFIGURATION_TYPES со значением "Debug;Release" и меткой/разделом Configs, переменная сохраниется в специальном файле доступном из всех файлов,
@@ -17,8 +17,8 @@ endif()
 #add_subdirectory(vector) #Добавляем директорию с под-CMakeList-ом, и выполняем под-CMakeList
 #add_subdirectory(vectorlib)
 
-file(GLOB hdrs "*.h*") #Добавляем в переменную hdrs все файлы с расширением .h
-file(GLOB srcs "*.cpp") #Добавляем в переменную srcs все файлы с расширением .cpp
+file(GLOB hdrs "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h*") #Добавляем в переменную hdrs все файлы с расширением .h
+file(GLOB srcs "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp") #Добавляем в переменную srcs все файлы с расширением .cpp
 
 #include_directories(lib1)
 add_executable(${PROJECT_NAME} ${srcs} ${hdrs}) #Создаем проект с именем из переменной ${PROJECT_NAME}, в него добавляются файлы из переменных ${srcs} и ${hdrs}
